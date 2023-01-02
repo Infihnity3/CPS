@@ -47,18 +47,17 @@ if(isset($_SESSION['user_id'])){
     <tr>
         <th>Cryptocurrency</td>
         <th>Price(MYR)</td>
-        <th>Market Cap(MYR)</td>
+        <!-- <th>Market Cap(MYR)</td>
         <th>24 hr Volume</td>
-        <th>24 hr Change</td>
+        <th>24 hr Change</td> -->
+        <th>Amount</td>
         <th>Actions</td>
     </tr>
     <tr>
 
         <td id="coin" name="coin">Ripple</td>
         <td><?php echo $data['ripple']['myr'] ?></td>
-        <td><?php echo $data['ripple']['myr_market_cap'] ?></td>
-        <td><?php echo $data['ripple']['myr_24h_vol'] ?></td>
-        <td><?php echo $data['ripple']['myr_24h_change'] ?></td>
+        <td></td>
         <td>
             <button type="submit" value="editP">Edit Holdings</button>
         </td>
@@ -67,9 +66,7 @@ if(isset($_SESSION['user_id'])){
 
     <td id="coin" name="coin">Bitcoin Cash</td>
         <td><?php echo $data['bitcoin-cash']['myr'] ?></td>
-        <td><?php echo $data['bitcoin-cash']['myr_market_cap'] ?></td>
-        <td><?php echo $data['bitcoin-cash']['myr_24h_vol'] ?></td>
-        <td><?php echo $data['bitcoin-cash']['myr_24h_change'] ?></td>
+        <td></td>
         <td>
             <button type="submit" value="editP">Edit Holdings</button>
         </td>
@@ -78,9 +75,7 @@ if(isset($_SESSION['user_id'])){
 
     <td id="coin" name="coin">Bitcoin</td>
     <td><?php echo $data['bitcoin']['myr'] ?></td>
-    <td><?php echo $data['bitcoin']['myr_market_cap'] ?></td>
-    <td><?php echo $data['bitcoin']['myr_24h_vol'] ?></td>
-    <td><?php echo $data['bitcoin']['myr_24h_change'] ?></td>
+    <td></td>
     <td>
         <button type="submit" value="editP">Edit Holdings</button>
     </td>
@@ -89,9 +84,7 @@ if(isset($_SESSION['user_id'])){
 
     <td id="coin" name="coin">Uniswap</td>
     <td><?php echo $data['uniswap']['myr'] ?></td>
-    <td><?php echo $data['uniswap']['myr_market_cap'] ?></td>
-    <td><?php echo $data['uniswap']['myr_24h_vol'] ?></td>
-    <td><?php echo $data['uniswap']['myr_24h_change'] ?></td>
+    <td></td>
     <td>
         <button type="submit" value="editP">Edit Holdings</button>
     </td>
@@ -100,9 +93,7 @@ if(isset($_SESSION['user_id'])){
 
     <td id="coin" name="coin">Ethereum</td>
     <td><?php echo $data['ethereum']['myr'] ?></td>
-    <td><?php echo $data['ethereum']['myr_market_cap'] ?></td>
-    <td><?php echo $data['ethereum']['myr_24h_vol'] ?></td>
-    <td><?php echo $data['ethereum']['myr_24h_change'] ?></td>
+    <td></td>
     <td>
         <button type="submit" value="editP">Edit Holdings</button>
     </td>
@@ -111,9 +102,7 @@ if(isset($_SESSION['user_id'])){
 
     <td id="coin" name="coin">Litecoin</td>
     <td><?php echo $data['litecoin']['myr'] ?></td>
-    <td><?php echo $data['litecoin']['myr_market_cap'] ?></td>
-    <td><?php echo $data['litecoin']['myr_24h_vol'] ?></td>
-    <td><?php echo $data['litecoin']['myr_24h_change'] ?></td>
+    <td></td>
     <td>
         <button type="submit" value="editP">Edit Holdings</button>
     </td>
@@ -122,9 +111,7 @@ if(isset($_SESSION['user_id'])){
 
     <td id="coin" name="coin">Solana</td>
     <td><?php echo $data['solana']['myr'] ?></td>
-    <td><?php echo $data['solana']['myr_market_cap'] ?></td>
-    <td><?php echo $data['solana']['myr_24h_vol'] ?></td>
-    <td><?php echo $data['solana']['myr_24h_change'] ?></td>
+    <td></td>
     <td>
         <button type="submit" value="editP">Edit Holdings</button>
     </td>
@@ -133,9 +120,7 @@ if(isset($_SESSION['user_id'])){
 
     <td id="coin" name="coin">ChainLink</td>
     <td><?php echo $data['chainlink']['myr'] ?></td>
-    <td><?php echo $data['chainlink']['myr_market_cap'] ?></td>
-    <td><?php echo $data['chainlink']['myr_24h_vol'] ?></td>
-    <td><?php echo $data['chainlink']['myr_24h_change'] ?></td>
+    <td></td>
     <td>
         <button type="submit" value="editP">Edit Holdings</button>
     </td>
@@ -144,9 +129,7 @@ if(isset($_SESSION['user_id'])){
 
     <td> id="coin" name="coin"Cardano</td>
     <td><?php echo $data['cardano']['myr'] ?></td>
-    <td><?php echo $data['cardano']['myr_market_cap'] ?></td>
-    <td><?php echo $data['cardano']['myr_24h_vol'] ?></td>
-    <td><?php echo $data['cardano']['myr_24h_change'] ?></td>
+    <td></td>
     <td>
         <button type="submit" value="editP">Edit Holdings</button>
     </td>
