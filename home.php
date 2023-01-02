@@ -44,13 +44,7 @@ if(isset($_SESSION['user_id'])){
     <a href="edit.php"><input type="Submit" value="Edit Profile"></input></a>
     <a href="feedback.php"><input type="Submit" value="Feedback Form"></input></a>
     <a href="watchlist.php"><input type="Submit" value="My Watchlist"></input></a>
-    <a href="portfolio.php"><input type="Submit" value="My Watchlist"></input></a>
-
-<?php else: ?>
-    <p>Sign In Failed</p>
-    <p><a href="signin.php"><input type="Submit" value="Sign In"></a> or 
-    <a href="register.html"><input type="Submit" value="Register"></a></p>
-<?php endif; ?>
+    <a href="portfolio.php"><input type="Submit" value="Portfolio"></input></a>
 
 <table>
     <tr>
@@ -78,39 +72,39 @@ if(isset($_SESSION['user_id'])){
     
     <form action="addWatchlist.php" method="POST">
         <tr> 
-            <td id="coin" name="coin">Bitcoin Cash</td>
+            <td id="coin1" name="coin1">Bitcoin Cash</td>
             <td><?php echo $data['bitcoin-cash']['myr'] ?></td>
             <td><?php echo $data['bitcoin-cash']['myr_market_cap'] ?></td>
             <td><?php echo $data['bitcoin-cash']['myr_24h_vol'] ?></td>
             <td><?php echo $data['bitcoin-cash']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add" name="Add">Add to Watchlist</button>
+                <button type="submit" value="Add" name="Add1">Add to Watchlist</button>
             </td>
         </tr>
     </form>
     
     <form action="addWatchlist.php" method="POST">
        <tr> 
-            <td id="coin" name="coin">Bitcoin</td>
+            <td id="coin2" name="coin2">Bitcoin</td>
             <td><?php echo $data['bitcoin']['myr'] ?></td>
             <td><?php echo $data['bitcoin']['myr_market_cap'] ?></td>
             <td><?php echo $data['bitcoin']['myr_24h_vol'] ?></td>
             <td><?php echo $data['bitcoin']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add" name="Add">Add to Watchlist</button>
+                <button type="submit" value="Add" name="Add2">Add to Watchlist</button>
             </td>
         </tr>
     </form>
     
     <form action="addWatchlist.php" method="POST">
         <tr>
-            <td id="coin" name="coin">Uniswap</td>
+            <td id="coin3" name="coin3">Uniswap</td>
             <td><?php echo $data['uniswap']['myr'] ?></td>
             <td><?php echo $data['uniswap']['myr_market_cap'] ?></td>
             <td><?php echo $data['uniswap']['myr_24h_vol'] ?></td>
             <td><?php echo $data['uniswap']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add" name="Add">Add to Watchlist</button>
+                <button type="submit" value="Add" name="Add3">Add to Watchlist</button>
             </td>
         </tr>
     </form>
@@ -118,68 +112,77 @@ if(isset($_SESSION['user_id'])){
 
     <form action="addWatchlist.php" method="POST">
         <tr>
-            <td id="coin" name="coin">Ethereum</td>
+            <td id="coin4" name="coin4">Ethereum</td>
             <td><?php echo $data['ethereum']['myr'] ?></td>
             <td><?php echo $data['ethereum']['myr_market_cap'] ?></td>
             <td><?php echo $data['ethereum']['myr_24h_vol'] ?></td>
             <td><?php echo $data['ethereum']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add" name="Add">Add to Watchlist</button>
+                <button type="submit" value="Add" name="Add4">Add to Watchlist</button>
             </td>
         </tr>
     </form>
     
     <form action="addWatchlist.php" method="POST">
         <tr>
-            <td id="coin" name="coin">Litecoin</td>
+            <td id="coin5" name="coin5">Litecoin</td>
             <td><?php echo $data['litecoin']['myr'] ?></td>
             <td><?php echo $data['litecoin']['myr_market_cap'] ?></td>
             <td><?php echo $data['litecoin']['myr_24h_vol'] ?></td>
             <td><?php echo $data['litecoin']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add" name="Add">Add to Watchlist</button>
+                <button type="submit" value="Add" name="Add5">Add to Watchlist</button>
             </td>
         </tr>
     </form>
    
     <form action="addWatchlist.php" method="POST">
         <tr>
-            <td id="coin" name="coin">Solana</td>
+            <td id="coin6" name="coin6">Solana</td>
             <td><?php echo $data['solana']['myr'] ?></td>
             <td><?php echo $data['solana']['myr_market_cap'] ?></td>
             <td><?php echo $data['solana']['myr_24h_vol'] ?></td>
             <td><?php echo $data['solana']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add" name="Add">Add to Watchlist</button>
+                <button type="submit" value="Add" name="Add6">Add to Watchlist</button>
             </td>
         </tr>
     </form>
     
     <form action="addWatchlist.php" method="POST">
         <tr>
-            <td id="coin" name="coin">ChainLink</td>
+            <td id="coin7" name="coin7">ChainLink</td>
             <td><?php echo $data['chainlink']['myr'] ?></td>
             <td><?php echo $data['chainlink']['myr_market_cap'] ?></td>
             <td><?php echo $data['chainlink']['myr_24h_vol'] ?></td>
             <td><?php echo $data['chainlink']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add" name="Add">Add to Watchlist</button>
+                <button type="submit" value="Add" name="Add7">Add to Watchlist</button>
             </td>
         </tr>
     </form>
     
     <form action="addWatchlist.php" method="POST">
         <tr>
-            <td id="coin" name="coin">Cardano</td>
+            <td id="coin8" name="coin8">Cardano</td>
             <td><?php echo $data['cardano']['myr'] ?></td>
             <td><?php echo $data['cardano']['myr_market_cap'] ?></td>
             <td><?php echo $data['cardano']['myr_24h_vol'] ?></td>
             <td><?php echo $data['cardano']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add" name="Add">Add to Watchlist</button>
+                <button type="submit" value="Add" name="Add8">Add to Watchlist</button>
             </td>
         </tr>
     </form>
 </table>
+
+
+<?php else: ?>
+    <p>Sign In Failed</p>
+    <p><a href="signin.php"><input type="Submit" value="Sign In"></a> or 
+    <a href="register.html"><input type="Submit" value="Register"></a></p>
+<?php endif; ?>
+
+
 </body>
 </html>
