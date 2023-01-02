@@ -20,7 +20,7 @@ plt.style.use('fivethirtyeight')
 st.title('Crypto Prediction System')
 # Take stock input from user and store in variable 'stock_name'
 default_crypto = 'BTC'
-stock_name = st.text_input("Enter Crypto Counter", default_crypto)
+stock_name = st.text_input("Select Cryptocurrency", default_crypto)
 
 default_start_date = date.today()-timedelta(days=365*2)
 start_date = st.date_input("Enter Start Date: ", default_start_date)
