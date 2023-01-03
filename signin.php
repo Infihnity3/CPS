@@ -30,24 +30,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
-<body>
-    <h1>
-        Sign In
-    </h1>
+<body class="p-3 mb-2 bg-light text-dark">
+    
     <?php if (isset($is_invalid)): ?>
         <em>Invalid email or password.</em>
     <?php endif; ?>
 
-    <form method="post">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email">
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
-        <button type="submit" value="Signin">Sign In</button>
+    <?php include 'components/navbar2.php' ?>
+    <form class="container" method="post">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-dark" value="Signin">Sign In</button>
     </form>
-    <a href="register.html"><input type="Submit" value="Register"></input></a>
+    
 </body>

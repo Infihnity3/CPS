@@ -29,26 +29,17 @@ if(isset($_SESSION['user_id'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
-<body>
-    <h1>
-        Home
-    </h1>
+<body class="p-3 mb-2 bg-light text-dark">
 <?php if (isset($user)): ?>
-    <p>Welcome, <?= htmlspecialchars($user['username']) ?></p>
-
-    <a href="signout.php"><input type="Submit" value="Sign Out"></input></a>
-    <a href="edit.php"><input type="Submit" value="Edit Profile"></input></a>
-    <a href="feedback.php"><input type="Submit" value="Feedback Form"></input></a>
-    <a href="watchlist.php"><input type="Submit" value="My Watchlist"></input></a>
-    <a href="portfolio.php"><input type="Submit" value="Portfolio"></input></a>
-    <a href="prediction.php"><input type="Submit" value="Prediction"></input></a>
+    <?php include 'components/navbar.php' ?>
+    <!-- <p>Welcome, <?= htmlspecialchars($user['username']) ?></p> -->
 
 <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container" >
+<div class="tradingview-widget-container container" >
   <div id="tradingview_d72e6"></div>
   <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BTCUSDT/?exchange=BINANCE" rel="noopener" target="_blank"><span class="blue-text">BTCUSDT chart</span></a> by TradingView</div>
   <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
@@ -74,16 +65,17 @@ if(isset($_SESSION['user_id'])){
   </script>
 </div>
 <!-- TradingView Widget END -->
-<table>
+<table class="table container">
+    <thead class="thead-dark">
     <tr>
-        <th>Cryptocurrency</td>
-        <th>Price(MYR)</td>
-        <th>Market Cap(MYR)</td>
-        <th>24 hr Volume</td>
-        <th>24 hr Change</td>
-        <th>Actions</td>
+        <th scope="col">Cryptocurrency</td>
+        <th scope="col">Price(MYR)</td>
+        <th scope="col">Market Cap(MYR)</td>
+        <th scope="col">24 hr Volume</td>
+        <th scope="col">24 hr Change</td>
+        <th scope="col">Actions</td>
     </tr>
-    
+    </thead>
     <form action="addWatchlist.php" method="POST">
         <tr>
             <td><label>Ripple<input type="hidden" id ="coin" name="coin" value="Ripple"></label></td>
@@ -92,7 +84,7 @@ if(isset($_SESSION['user_id'])){
             <td><?php echo $data['ripple']['myr_24h_vol'] ?></td>
             <td><?php echo $data['ripple']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add" name="Add">Add to Watchlist</button>
+                <button class="btn btn-dark" type="submit" value="Add" name="Add">Add to Watchlist</button>
             </td>
         </tr>
     </form>
@@ -106,7 +98,7 @@ if(isset($_SESSION['user_id'])){
             <td><?php echo $data['bitcoin-cash']['myr_24h_vol'] ?></td>
             <td><?php echo $data['bitcoin-cash']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add1" name="Add1">Add to Watchlist</button>
+                <button class="btn btn-dark" type="submit" value="Add1" name="Add1">Add to Watchlist</button>
             </td>
         </tr>
     </form>
@@ -119,7 +111,7 @@ if(isset($_SESSION['user_id'])){
             <td><?php echo $data['bitcoin']['myr_24h_vol'] ?></td>
             <td><?php echo $data['bitcoin']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add2" name="Add2">Add to Watchlist</button>
+                <button class="btn btn-dark" type="submit" value="Add2" name="Add2">Add to Watchlist</button>
             </td>
         </tr>
     </form>
@@ -132,7 +124,7 @@ if(isset($_SESSION['user_id'])){
             <td><?php echo $data['uniswap']['myr_24h_vol'] ?></td>
             <td><?php echo $data['uniswap']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add3" name="Add3">Add to Watchlist</button>
+                <button class="btn btn-dark" type="submit" value="Add3" name="Add3">Add to Watchlist</button>
             </td>
         </tr>
     </form>
@@ -146,7 +138,7 @@ if(isset($_SESSION['user_id'])){
             <td><?php echo $data['ethereum']['myr_24h_vol'] ?></td>
             <td><?php echo $data['ethereum']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add4" name="Add4">Add to Watchlist</button>
+                <button class="btn btn-dark" type="submit" value="Add4" name="Add4">Add to Watchlist</button>
             </td>
         </tr>
     </form>
@@ -159,7 +151,7 @@ if(isset($_SESSION['user_id'])){
             <td><?php echo $data['litecoin']['myr_24h_vol'] ?></td>
             <td><?php echo $data['litecoin']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add5" name="Add5">Add to Watchlist</button>
+                <button class="btn btn-dark" type="submit" value="Add5" name="Add5">Add to Watchlist</button>
             </td>
         </tr>
     </form>
@@ -172,7 +164,7 @@ if(isset($_SESSION['user_id'])){
             <td><?php echo $data['solana']['myr_24h_vol'] ?></td>
             <td><?php echo $data['solana']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add6" name="Add6">Add to Watchlist</button>
+                <button class="btn btn-dark" type="submit" value="Add6" name="Add6">Add to Watchlist</button>
             </td>
         </tr>
     </form>
@@ -185,7 +177,7 @@ if(isset($_SESSION['user_id'])){
             <td><?php echo $data['chainlink']['myr_24h_vol'] ?></td>
             <td><?php echo $data['chainlink']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add7" name="Add7">Add to Watchlist</button>
+                <button class="btn btn-dark" type="submit" value="Add7" name="Add7">Add to Watchlist</button>
             </td>
         </tr>
     </form>
@@ -198,7 +190,7 @@ if(isset($_SESSION['user_id'])){
             <td><?php echo $data['cardano']['myr_24h_vol'] ?></td>
             <td><?php echo $data['cardano']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add8" name="Add8">Add to Watchlist</button>
+                <button class="btn btn-dark" type="submit" value="Add8" name="Add8">Add to Watchlist</button>
             </td>
         </tr>
     </form>

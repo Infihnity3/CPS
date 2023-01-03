@@ -39,18 +39,20 @@ if(isset($_SESSION['user_id'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Watchlist</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
-<body>
-    <a href="home.php"><input type="Submit" value="Home"></input></a>
-    <table>
+<body class="p-3 mb-2 bg-light text-dark">
+<?php include 'components/navbar.php' ?>
+    <table class="table container">
+        <thead class="thead-dark">
         <tr>
-            <th>Cryptocurrency</td>
+            <th scope="col">Cryptocurrency</td>
             <!-- <th>Price(MYR)</td>
             <th>Market Cap(MYR)</td>
             <th>24 hr Volume</td> -->
         </tr>
+    </thead>
         <!-- <tr> -->
             <?php 
                 if($result->num_rows > 0){

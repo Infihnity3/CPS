@@ -8,14 +8,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prediction</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     <py-config>
     packages = ['pandas','numpy','matplotlib','plotly','seaborn','xgboost','scikit-learn']
     </py-config>
 
-    <py-env>
+    <!-- <py-env>
     - pandas
     - numpy
     - matplotlib
@@ -27,13 +27,15 @@
     - seaborn
     - plotly
 
-</py-env>
+</py-env> -->
 </head>
 
-<body>
-    <p>Prediction Results of Cryptocurrencies</p>
-    <div id="chart"></div>
-<py-script>
+<body class="p-3 mb-2 bg-light text-dark">
+<?php include 'components/navbar.php' ?>
+
+    <!-- <p class="container">Prediction Results of Bitcoin-USD</p> -->
+    <div id="plot" class="container"></div>
+    <py-script>
 import pandas as pd
 import numpy as np
 import math
@@ -41,16 +43,17 @@ import datetime as dt
 
 import matplotlib.pyplot as plt
 from itertools import cycle
-# import plotly.graph_objects as go
-# import plotly.express as px
-# from plotly.subplots import make_subplots
-# import seaborn as sns
 from xgboost import XGBRegressor
 from sklearn.metrics import mean_squared_error, mean_absolute_error, explained_variance_score, r2_score 
 from sklearn.metrics import mean_poisson_deviance, mean_gamma_deviance, accuracy_score
 from sklearn.preprocessing import MinMaxScaler
 
-data=pd.read_csv('../CPS/historical-price/BTC-USD.csv')
+from pyodide.http import open_url
+
+loadData = open_url("https://raw.githubusercontent.com/Infihnity3/CPS/main/historical-price/BTC-USD.csv")
+data=pd.read_csv(loadData)
+
+
 data = data.rename(columns={'Date': 'date','Open':'open','High':'high','Low':'low','Close':'close',
                                 'Adj Close':'adj_close','Volume':'volume'})
 
@@ -132,7 +135,7 @@ from numpy import array
 lst_output=[]
 n_steps=time_step
 i=0
-pred_days = 11
+pred_days = 366
 
 while(i<=pred_days):    
     if(len(temp_input)>time_step):
@@ -183,16 +186,16 @@ my_model=scaler.inverse_transform(my_model).reshape(1,-1).tolist()[0]
 
 names = cycle(['Close Price'])
 
+fig, ax = plt.subplots()
 plt.plot(my_model,ls='solid')
-
 plt.legend(['Closing Price'])
-plt.title('Plotting whole closing price with prediction')
+plt.title('Prediction of Closing Price for Bitcoin-USD')
 plt.xlabel('Days')
 plt.ylabel('Price')
-fig = plt.show()
-pyscript.write("chart",fig)
+ax.set_facecolor("#202b38")
+
+pyscript.write("plot",fig)
 </py-script>
-    <a href="home.php"><input type="Submit" value="Home"></input></a>
 </body>
 </html>
 
