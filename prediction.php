@@ -132,9 +132,9 @@ from numpy import array
 lst_output=[]
 n_steps=time_step
 i=0
-pred_days = 10
+pred_days = 11
 
-while(i<pred_days):    
+while(i<=pred_days):    
     if(len(temp_input)>time_step):
         
         x_input=np.array(temp_input[1:])
