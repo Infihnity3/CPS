@@ -38,103 +38,126 @@ if(isset($_SESSION['user_id'])){
     <h1>
         Portfolio Page
     </h1>
-<?php if (isset($user)): ?>
-    <p>Welcome, <?= htmlspecialchars($user['username']), Please click the edit button to update your cryptocurrency holdings ?></p>
+    <p>Please click the edit button to update your cryptocurrency holdings</p>
 
     <a href="home.php"><input type="Submit" value="Home"></input></a>
 
 
-<table>
+    <table>
     <tr>
         <th>Cryptocurrency</td>
         <th>Price(MYR)</td>
-        <!-- <th>Market Cap(MYR)</td>
-        <th>24 hr Volume</td>
-        <th>24 hr Change</td> -->
         <th>Amount</td>
         <th>Actions</td>
     </tr>
-    <tr>
+    
+    <form action="editHoldings.php" method="POST">
+        <tr>
+            <td><label>Ripple<input type="hidden" id ="coin" name="coin" value="Ripple"></label></td>
+            <td><?php echo $data['ripple']['myr'] ?></td>
+            <td></td>
+            <td>
+                <button type="submit" value="Add" name="Add">Add/Edit Holdings</button>
+            </td>
+        </tr>
+    </form>
+    
+    
+    <form action="editHoldings.php" method="POST">
+        <tr> 
+        <td><label>Bitcoin Cash<input type="hidden" id ="coin1" name="coin1" value="Bitcoin Cash"></label></td>
+            <td><?php echo $data['bitcoin-cash']['myr'] ?></td>
+            <td></td>
 
-        <td id="coin" name="coin">Ripple</td>
-        <td><?php echo $data['ripple']['myr'] ?></td>
-        <td></td>
-        <td>
-            <button type="submit" value="editP">Edit Holdings</button>
-        </td>
-    </tr>
-    <tr>
+            <td>
+                <button type="submit" value="Add1" name="Add1">Add/Edit Holdings</button>
+            </td>
+        </tr>
+    </form>
+    
+    <form action="editHoldings.php" method="POST">
+       <tr> 
+       <td><label>Bitcoin<input type="hidden" id ="coin2" name="coin2" value="Bitcoin"></label></td>
+            <td><?php echo $data['bitcoin']['myr'] ?></td>
+            <td></td>
 
-    <td id="coin" name="coin">Bitcoin Cash</td>
-        <td><?php echo $data['bitcoin-cash']['myr'] ?></td>
-        <td></td>
-        <td>
-            <button type="submit" value="editP">Edit Holdings</button>
-        </td>
-    </tr>
-    <tr>
+            <td>
+                <button type="submit" value="Add2" name="Add2">Add/Edit Holdings</button>
+            </td>
+        </tr>
+    </form>
+    
+    <form action="editHoldings.php" method="POST">
+        <tr>
+        <td><label>Uniswap<input type="hidden" id ="coin3" name="coin3" value="Uniswap"></label></td>
+            <td><?php echo $data['uniswap']['myr'] ?></td>
+            <td></td>
 
-    <td id="coin" name="coin">Bitcoin</td>
-    <td><?php echo $data['bitcoin']['myr'] ?></td>
-    <td></td>
-    <td>
-        <button type="submit" value="editP">Edit Holdings</button>
-    </td>
-    </tr>
-    <tr>
+            <td>
+                <button type="submit" value="Add3" name="Add3">Add/Edit Holdings</button>
+            </td>
+        </tr>
+    </form>
+    
 
-    <td id="coin" name="coin">Uniswap</td>
-    <td><?php echo $data['uniswap']['myr'] ?></td>
-    <td></td>
-    <td>
-        <button type="submit" value="editP">Edit Holdings</button>
-    </td>
-    </tr>
-    <tr>
+    <form action="editHoldings.php" method="POST">
+        <tr>
+        <td><label>Ethereum<input type="hidden" id ="coin4" name="coin4" value="Ethereum"></label></td>
+            <td><?php echo $data['ethereum']['myr'] ?></td>
+            <td></td>
 
-    <td id="coin" name="coin">Ethereum</td>
-    <td><?php echo $data['ethereum']['myr'] ?></td>
-    <td></td>
-    <td>
-        <button type="submit" value="editP">Edit Holdings</button>
-    </td>
-    </tr>
-    <tr>
+            <td>
+                <button type="submit" value="Add4" name="Add4">Add/Edit Holdings</button>
+            </td>
+        </tr>
+    </form>
+    
+    <form action="editHoldings.php" method="POST">
+        <tr>
+        <td><label>Litecoin<input type="hidden" id ="coin5" name="coin5" value="Litecoin"></label></td>
+            <td><?php echo $data['litecoin']['myr'] ?></td>
+            <td></td>
 
-    <td id="coin" name="coin">Litecoin</td>
-    <td><?php echo $data['litecoin']['myr'] ?></td>
-    <td></td>
-    <td>
-        <button type="submit" value="editP">Edit Holdings</button>
-    </td>
-    </tr>
-    <tr>
+            <td>
+                <button type="submit" value="Add5" name="Add5">Add/Edit Holdings</button>
+            </td>
+        </tr>
+    </form>
+   
+    <form action="editHoldings.php" method="POST">
+        <tr>
+        <td><label>Solana<input type="hidden" id ="coin6" name="coin6" value="Solana"></label></td>
+            <td><?php echo $data['solana']['myr'] ?></td>
+            <td></td>
 
-    <td id="coin" name="coin">Solana</td>
-    <td><?php echo $data['solana']['myr'] ?></td>
-    <td></td>
-    <td>
-        <button type="submit" value="editP">Edit Holdings</button>
-    </td>
-    </tr>
-    <tr>
+            <td>
+                <button type="submit" value="Add6" name="Add6">Add/Edit Holdings</button>
+            </td>
+        </tr>
+    </form>
+    
+    <form action="editHoldings.php" method="POST">
+        <tr>
+        <td><label>ChainLink<input type="hidden" id ="coin7" name="coin7" value="ChainLink"></label></td>
+            <td><?php echo $data['chainlink']['myr'] ?></td>
+            <td></td>
 
-    <td id="coin" name="coin">ChainLink</td>
-    <td><?php echo $data['chainlink']['myr'] ?></td>
-    <td></td>
-    <td>
-        <button type="submit" value="editP">Edit Holdings</button>
-    </td>
-    </tr>
-    <tr>
-
-    <td> id="coin" name="coin"Cardano</td>
-    <td><?php echo $data['cardano']['myr'] ?></td>
-    <td></td>
-    <td>
-        <button type="submit" value="editP">Edit Holdings</button>
-    </td>
-    </tr>
+            <td>
+                <button type="submit" value="Add7" name="Add7">Add/Edit Holdings</button>
+            </td>
+        </tr>
+    </form>
+    
+    <form action="editHoldings.php" method="POST">
+        <tr>
+        <td><label>Cardano<input type="hidden" id ="coin8" name="coin8" value="Cardano"></label></td>
+            <td><?php echo $data['cardano']['myr'] ?></td>
+            <td></td>
+            <td>
+                <button type="submit" value="Add8" name="Add8">Add/Edit Holdings</button>
+            </td>
+        </tr>
+    </form>
 </table>
 </body>
 </html>

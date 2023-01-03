@@ -45,7 +45,35 @@ if(isset($_SESSION['user_id'])){
     <a href="feedback.php"><input type="Submit" value="Feedback Form"></input></a>
     <a href="watchlist.php"><input type="Submit" value="My Watchlist"></input></a>
     <a href="portfolio.php"><input type="Submit" value="Portfolio"></input></a>
+    <a href="prediction.php"><input type="Submit" value="Prediction"></input></a>
 
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container" >
+  <div id="tradingview_d72e6"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BTCUSDT/?exchange=BINANCE" rel="noopener" target="_blank"><span class="blue-text">BTCUSDT chart</span></a> by TradingView</div>
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+  <script type="text/javascript">
+  new TradingView.widget(
+  {
+  "autosize": true,
+  "symbol": "BINANCE:BTCUSDT",
+  "interval": "D",
+  "timezone": "Asia/Singapore",
+  "theme": "dark",
+  "style": "1",
+  "locale": "en",
+  "toolbar_bg": "#f1f3f6",
+  "enable_publishing": false,
+  "hide_side_toolbar": false,
+  "allow_symbol_change": true,
+  "details": true,
+  "calendar": true,
+  "container_id": "tradingview_d72e6"
+}
+  );
+  </script>
+</div>
+<!-- TradingView Widget END -->
 <table>
     <tr>
         <th>Cryptocurrency</td>
@@ -58,7 +86,7 @@ if(isset($_SESSION['user_id'])){
     
     <form action="addWatchlist.php" method="POST">
         <tr>
-            <td id="coin" name="coin">Ripple</td>
+            <td><label>Ripple<input type="hidden" id ="coin" name="coin" value="Ripple"></label></td>
             <td><?php echo $data['ripple']['myr'] ?></td>
             <td><?php echo $data['ripple']['myr_market_cap'] ?></td>
             <td><?php echo $data['ripple']['myr_24h_vol'] ?></td>
@@ -72,39 +100,39 @@ if(isset($_SESSION['user_id'])){
     
     <form action="addWatchlist.php" method="POST">
         <tr> 
-            <td id="coin1" name="coin1">Bitcoin Cash</td>
+        <td><label>Bitcoin Cash<input type="hidden" id ="coin1" name="coin1" value="Bitcoin Cash"></label></td>
             <td><?php echo $data['bitcoin-cash']['myr'] ?></td>
             <td><?php echo $data['bitcoin-cash']['myr_market_cap'] ?></td>
             <td><?php echo $data['bitcoin-cash']['myr_24h_vol'] ?></td>
             <td><?php echo $data['bitcoin-cash']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add" name="Add1">Add to Watchlist</button>
+                <button type="submit" value="Add1" name="Add1">Add to Watchlist</button>
             </td>
         </tr>
     </form>
     
     <form action="addWatchlist.php" method="POST">
        <tr> 
-            <td id="coin2" name="coin2">Bitcoin</td>
+       <td><label>Bitcoin<input type="hidden" id ="coin2" name="coin2" value="Bitcoin"></label></td>
             <td><?php echo $data['bitcoin']['myr'] ?></td>
             <td><?php echo $data['bitcoin']['myr_market_cap'] ?></td>
             <td><?php echo $data['bitcoin']['myr_24h_vol'] ?></td>
             <td><?php echo $data['bitcoin']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add" name="Add2">Add to Watchlist</button>
+                <button type="submit" value="Add2" name="Add2">Add to Watchlist</button>
             </td>
         </tr>
     </form>
     
     <form action="addWatchlist.php" method="POST">
         <tr>
-            <td id="coin3" name="coin3">Uniswap</td>
+        <td><label>Uniswap<input type="hidden" id ="coin3" name="coin3" value="Uniswap"></label></td>
             <td><?php echo $data['uniswap']['myr'] ?></td>
             <td><?php echo $data['uniswap']['myr_market_cap'] ?></td>
             <td><?php echo $data['uniswap']['myr_24h_vol'] ?></td>
             <td><?php echo $data['uniswap']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add" name="Add3">Add to Watchlist</button>
+                <button type="submit" value="Add3" name="Add3">Add to Watchlist</button>
             </td>
         </tr>
     </form>
@@ -112,65 +140,65 @@ if(isset($_SESSION['user_id'])){
 
     <form action="addWatchlist.php" method="POST">
         <tr>
-            <td id="coin4" name="coin4">Ethereum</td>
+        <td><label>Ethereum<input type="hidden" id ="coin4" name="coin4" value="Ethereum"></label></td>
             <td><?php echo $data['ethereum']['myr'] ?></td>
             <td><?php echo $data['ethereum']['myr_market_cap'] ?></td>
             <td><?php echo $data['ethereum']['myr_24h_vol'] ?></td>
             <td><?php echo $data['ethereum']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add" name="Add4">Add to Watchlist</button>
+                <button type="submit" value="Add4" name="Add4">Add to Watchlist</button>
             </td>
         </tr>
     </form>
     
     <form action="addWatchlist.php" method="POST">
         <tr>
-            <td id="coin5" name="coin5">Litecoin</td>
+        <td><label>Litecoin<input type="hidden" id ="coin5" name="coin5" value="Litecoin"></label></td>
             <td><?php echo $data['litecoin']['myr'] ?></td>
             <td><?php echo $data['litecoin']['myr_market_cap'] ?></td>
             <td><?php echo $data['litecoin']['myr_24h_vol'] ?></td>
             <td><?php echo $data['litecoin']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add" name="Add5">Add to Watchlist</button>
+                <button type="submit" value="Add5" name="Add5">Add to Watchlist</button>
             </td>
         </tr>
     </form>
    
     <form action="addWatchlist.php" method="POST">
         <tr>
-            <td id="coin6" name="coin6">Solana</td>
+        <td><label>Solana<input type="hidden" id ="coin6" name="coin6" value="Solana"></label></td>
             <td><?php echo $data['solana']['myr'] ?></td>
             <td><?php echo $data['solana']['myr_market_cap'] ?></td>
             <td><?php echo $data['solana']['myr_24h_vol'] ?></td>
             <td><?php echo $data['solana']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add" name="Add6">Add to Watchlist</button>
+                <button type="submit" value="Add6" name="Add6">Add to Watchlist</button>
             </td>
         </tr>
     </form>
     
     <form action="addWatchlist.php" method="POST">
         <tr>
-            <td id="coin7" name="coin7">ChainLink</td>
+        <td><label>ChainLink<input type="hidden" id ="coin7" name="coin7" value="ChainLink"></label></td>
             <td><?php echo $data['chainlink']['myr'] ?></td>
             <td><?php echo $data['chainlink']['myr_market_cap'] ?></td>
             <td><?php echo $data['chainlink']['myr_24h_vol'] ?></td>
             <td><?php echo $data['chainlink']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add" name="Add7">Add to Watchlist</button>
+                <button type="submit" value="Add7" name="Add7">Add to Watchlist</button>
             </td>
         </tr>
     </form>
     
     <form action="addWatchlist.php" method="POST">
         <tr>
-            <td id="coin8" name="coin8">Cardano</td>
+        <td><label>Cardano<input type="hidden" id ="coin8" name="coin8" value="Cardano"></label></td>
             <td><?php echo $data['cardano']['myr'] ?></td>
             <td><?php echo $data['cardano']['myr_market_cap'] ?></td>
             <td><?php echo $data['cardano']['myr_24h_vol'] ?></td>
             <td><?php echo $data['cardano']['myr_24h_change'] ?></td>
             <td>
-                <button type="submit" value="Add" name="Add8">Add to Watchlist</button>
+                <button type="submit" value="Add8" name="Add8">Add to Watchlist</button>
             </td>
         </tr>
     </form>
