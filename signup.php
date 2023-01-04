@@ -12,9 +12,9 @@ if (strlen($_POST["password"]) < 8) {
     echo "Password must be at least 8 characters.";
 }
 
-if(!preg_match("/^[a-zA-Z0-9]+$/", $_POST['password'])) {
-    echo "Password must be alphanumeric";
-}
+// if(!preg_match("/^[a-zA-Z0-9]+$/", $_POST['password'])) {
+//     echo "Password must be alphanumeric";
+// }
 
 if ($_POST['password'] != $_POST['password2']) {
     echo "Passwords do not match.";
@@ -34,17 +34,36 @@ if (!$stmt->prepare($sql)){
 
 $stmt->bind_param("sss", $_POST['name'], $_POST['email'], $password_hash);
 
-if ($stmt->execute()) {
+$select = mysqli_query($mysqli, "SELECT * FROM user WHERE email = '".$_POST['email']."'");
+if(mysqli_num_rows($select)) {
+    exit('<script>alert("This email exists");window.location.href="register.php";</script>');
+
+} else {
     header("Location: signin.php");
     exit;
-} else {
-
-    if($mysqli->errno === 1062){
-        die("Email already exists.");
-    } else {
-        die($mysqli->error . " " . $mysqli->errno);
-    }
 }
+
+// $stmt->execute([$_POST['email']]); 
+// //fetch result
+// $user = $stmt->fetch();
+// if ($user) {
+//     die("Email already exists.");
+//     header("Location: register.php");
+// } else {
+//     header("Location: signin.php");
+//     exit;
+// } 
+// if ($stmt->execute()) {
+//     header("Location: signin.php");
+//     exit;
+// } else {
+
+//     if($mysqli->errno === 1062){
+//         die("Email already exists.");
+//     } else {
+//         die($mysqli->error . " " . $mysqli->errno);
+//     }
+// }
 
 
 

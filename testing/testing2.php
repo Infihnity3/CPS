@@ -9,47 +9,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prediction</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
     <py-config>
     packages = ['pandas','numpy','matplotlib','plotly','seaborn','xgboost','scikit-learn']
     </py-config>
 
-   <!-- <py-env>
+    <!-- <py-env>
     - pandas
     - numpy
     - matplotlib
+    - matplotlib-pyodide
     - xgboost
     - scikit-learn
+    - tensorflow
+    - keras
     - seaborn
     - plotly
 
-    </py-env>-->
+</py-env> -->
 </head>
-  
+
 <body class="p-3 mb-2 bg-light text-dark">
 <?php include 'components/navbar.php' ?>
 <py-script>
-import pandas as pd
-import numpy as np
-import math
-import datetime as dt
+def add_task(*ags, **kws):
+    import pandas as pd
+    import numpy as np
+    import math
+    import datetime as dt
 
-import matplotlib.pyplot as plt
-from itertools import cycle
-from xgboost import XGBRegressor
-from sklearn.metrics import mean_squared_error, mean_absolute_error, explained_variance_score, r2_score 
-from sklearn.metrics import mean_poisson_deviance, mean_gamma_deviance, accuracy_score
-from sklearn.preprocessing import MinMaxScaler
+    import matplotlib.pyplot as plt
+    from itertools import cycle
+    from xgboost import XGBRegressor
+    from sklearn.metrics import mean_squared_error, mean_absolute_error, explained_variance_score, r2_score 
+    from sklearn.metrics import mean_poisson_deviance, mean_gamma_deviance, accuracy_score
+    from sklearn.preprocessing import MinMaxScaler
 
-from pyodide.http import open_url
+    from pyodide.http import open_url
 
-
-crypto_input = Element('crypto').element.value
-crypto_day = Element('days').element.value   
-
-
-def my_function(*aws,**kws):
+    crypto_input = Element('crypto').element.value
+    crypto_day = Element('days').element.value    
     if crypto_input == "1":
         loadData = open_url("https://raw.githubusercontent.com/Infihnity3/CPS/main/historical-price/BTC-USD.csv")
     elif crypto_input == "2":
@@ -69,9 +69,6 @@ def my_function(*aws,**kws):
     elif crypto_input == "9":
         loadData = open_url("https://raw.githubusercontent.com/Infihnity3/CPS/main/historical-price/SOL-USD.csv")    
     data=pd.read_csv(loadData)
-
-    #loadData = open_url("https://raw.githubusercontent.com/Infihnity3/CPS/main/historical-price/BTC-USD.csv")
-    #data=pd.read_csv(loadData)
 
     data = data.rename(columns={'Date': 'date','Open':'open','High':'high','Low':'low','Close':'close',
                                     'Adj Close':'adj_close','Volume':'volume'})
@@ -154,7 +151,7 @@ def my_function(*aws,**kws):
     lst_output=[]
     n_steps=time_step
     i=0
-    pred_days = 60
+    pred_days = crypto_day
     while(i<=pred_days):    
         if(len(temp_input)>time_step):
             
@@ -211,15 +208,17 @@ def my_function(*aws,**kws):
     plt.xlabel('Days')
     plt.ylabel('Price')
     ax.set_facecolor("#202b38")
-    
-    pyscript.write("plot",fig)
+
+    results_plot = Element('plot')
+    results_plot.write(fig)
+
+    pyscript('plot', fig)
 
 
 </py-script>
     <!-- <p class="container">Prediction Results of Bitcoin-USD</p> -->
     <div class="container">
     <div id="plot" class="container"></div>
-    <form >
         <div class="form-group">
         <select name="crypto" id="crypto" class="form-select" aria-label="Default select example">
             <option selected value="1">Bitcoin-USD</option>
@@ -234,13 +233,11 @@ def my_function(*aws,**kws):
         </select>
         </div>
         <div class="form-group">
-            <label for="days">Please enter the number of days you like to predict</label>
+            <label for="day">Please enter the number of days you like to predict</label>
             <input class="form-control" name="days" id="days" value="60"></div>
         </div>
-        <button py-click="my_function()" id="submit" class="btn btn-dark" type="submit">Predict</button>
-    </form>
+        <button pys-onClick="add_task" id="submit" class="btn btn-dark" type="submit">Predict</button>
     </div>
-
 </body>
 </html>
 

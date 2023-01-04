@@ -14,10 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
             session_start();
 
             session_regenerate_id();
-
+            
             $_SESSION['user_id'] = $user['id'];
             header("Location: home.php");
-            exit;
+            exit();
         }
     }
 
@@ -37,7 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 <body class="p-3 mb-2 bg-light text-dark">
     
     <?php if (isset($is_invalid)): ?>
-        <em>Invalid email or password.</em>
+        <em><script>
+alert('Wrong Email/Password');;
+</script></em>
     <?php endif; ?>
 
     <?php include 'components/navbar2.php' ?>
