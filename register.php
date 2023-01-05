@@ -44,8 +44,8 @@ var check = function() {
           <input type="password" class="form-control" id="password" name="password" placeholder="Password" onkeyup='check()'>
         </div>
         <div class="form-group">
-            <label for="password2">Password</label>
-            <input type="password" class="form-control" id="password2" name="password2" placeholder="Password" onkeyup='check()'>
+            <label for="password2">Confirm Password</label>
+            <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password" onkeyup='check()'>
           </div>
           <div id="message"></div>
         <button type="submit" class="btn btn-dark" value="Register">Register</button>

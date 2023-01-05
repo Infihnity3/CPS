@@ -24,23 +24,19 @@ $password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 $mysqli = require __DIR__ . '/database.php';
 
-$sql = "INSERT INTO user (username, email, password_hash) VALUES (?, ?, ?)";
+$username = $_POST['name'];
+$email = $_POST['email'];
 
-$stmt = $mysqli->stmt_init();
-    
-if (!$stmt->prepare($sql)){
-    die("SQL Error: " . $stmt->error);
-};
 
-$stmt->bind_param("sss", $_POST['name'], $_POST['email'], $password_hash);
+$sql = "INSERT INTO user (username, email, password_hash) VALUES ('$username', '$email', '$password_hash')";
 
 $select = mysqli_query($mysqli, "SELECT * FROM user WHERE email = '".$_POST['email']."'");
 if(mysqli_num_rows($select)) {
     exit('<script>alert("This email exists");window.location.href="register.php";</script>');
 
 } else {
-    header("Location: signin.php");
-    exit;
+    $mysqli->query($sql);
+    exit('<script>alert("Register Successfully");window.location.href="signin.php";</script>');
 }
 
 // $stmt->execute([$_POST['email']]); 

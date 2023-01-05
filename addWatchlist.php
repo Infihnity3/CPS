@@ -148,19 +148,13 @@ if(isset($_POST['Add8']))
     $email=$user['email'];
     $coin = $_POST["coin8"];
     $insert = "INSERT INTO watchlist (email, crypto_w) VALUES ('$email', '$coin')";
-    if(isset($_POST['Add7']))
-    {
-        
-        $email=$user['email'];
-        $coin = $_POST["coin7"];
-        $insert = "INSERT INTO watchlist (email, crypto_w) VALUES ('$email', '$coin')";
-        $select = mysqli_query($mysqli, "SELECT * FROM watchlist WHERE email = '".$user['email']."' AND crypto_w = '$coin'");
-        if(mysqli_num_rows($select)) {
-            exit('<script>alert("This cryptocurrency exists in your watchlish");window.location.href="home.php";</script>');
-    
-        } else {
-            $mysqli->query($insert);
-            exit('<script>alert("Added Successfully");window.location.href="watchlist.php";</script>');
-        }
+    $select = mysqli_query($mysqli, "SELECT * FROM watchlist WHERE email = '".$user['email']."' AND crypto_w = '$coin'");
+    if(mysqli_num_rows($select)) {
+        exit('<script>alert("This cryptocurrency exists in your watchlish");window.location.href="home.php";</script>');
+
+    } else {
+        $mysqli->query($insert);
+        exit('<script>alert("Added Successfully");window.location.href="watchlist.php";</script>');
     }
+
 }
