@@ -34,7 +34,12 @@ $select = mysqli_query($mysqli, "SELECT * FROM user WHERE email = '".$_POST['ema
 if(mysqli_num_rows($select)) {
     exit('<script>alert("This email exists");window.location.href="register.php";</script>');
 
-} else {
+} else if($_POST['password'] != $_POST['password2']) {
+    exit('<script>alert("Passwords do not match");window.location.href="register.php";</script>');
+} else if(strlen($_POST["password"]) < 8){
+    exit('<script>alert("Password must be at least 8 characters");window.location.href="register.php";</script>');
+}
+else {
     $mysqli->query($sql);
     exit('<script>alert("Register Successfully");window.location.href="signin.php";</script>');
 }
