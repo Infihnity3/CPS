@@ -13,9 +13,9 @@ if(isset($_SESSION['user_id'])){
     
     $email = $user['email'];
 
-    $sql = "SELECT * FROM watchlist WHERE email = '$email'";
-    $result = $mysqli->query($sql);
-    $watchlist = $result->fetch_assoc();
+    $sql2 = "SELECT * FROM watchlist WHERE email = '$email'";
+    $result2 = $mysqli->query($sql2);
+    // $watchlist = $result->fetch_assoc();
 
     // var_dump($watchlist);    
     // foreach($watchlist as $crypto_w){
@@ -44,6 +44,8 @@ if(isset($_SESSION['user_id'])){
 </head>
 <body class="p-3 mb-2 bg-light text-dark">
 <?php include 'components/navbar.php' ?>
+<div class="container">
+<h1>My Watchlist</h1>
     <table class="table container">
         <thead class="thead-dark">
         <tr>
@@ -53,25 +55,17 @@ if(isset($_SESSION['user_id'])){
             <th>24 hr Volume</td> -->
         </tr>
     </thead>
-        <!-- <tr> -->
             <?php 
-                if($result->num_rows > 0){
-                    while($row = $result->fetch_assoc()){
-                        echo "<tr><td>".$row['crypto_w']."</td></tr>"; 
+                    while($row = mysqli_fetch_array($result2)){
+                        echo "<tr>";
+                        echo "<td>" . $row['crypto_w'] . "</td>";
+                        echo "</tr>";
                     }
                     echo "</table>";
-                }
-                else{
-                    $crypto = "No Cryptocurrency";
-                }
             
             ?>
-            <!-- <td></td>
-            <td></td>
-            <td></td> --> 
-        <!-- </tr> -->
     </table>
     
-
+                </div>
 </body>
 </html>

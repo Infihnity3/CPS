@@ -18,9 +18,6 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="prediction.php">Prediction</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="portfolio.php">Portfolio</a>
       </li>
       <li class="nav-item dropdown">
