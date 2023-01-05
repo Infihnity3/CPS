@@ -49,7 +49,7 @@ var check = function() {
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" name="password" placeholder="Password" onkeyup='check()'>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password" onkeyup='check()' required>
         </div>
         <div id="message"></div>
         <button type="submit" class="btn btn-dark" value="Submit" name="edit">Edit Profile</button>
