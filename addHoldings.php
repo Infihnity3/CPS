@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     </div>
     <div class="form-group">
         <label>Amount</label>
-        <input type="number" class="form-control" name="amount" id="amount" required step="any" min="0">
+        <input type="number" class="form-control" name="amount" id="amount" required step="any" min="0" required>
     </div>
     <button type="submit" class="btn btn-dark" name="submit" id="submit">Add Holdings</button>
 </form>

@@ -45,7 +45,7 @@ var check = function() {
     <form action="editProfile.php" class="container" method="post">
         <div class="form-group">
           <label for="username">Email</label>
-          <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" value="<?php echo $user['username']; ?>">
+          <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" value="<?php echo $user['username']; ?>" required>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
