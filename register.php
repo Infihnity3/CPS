@@ -33,19 +33,19 @@ var check = function() {
     <form class="container" action="signup.php" method="post" id="register">
         <div class="form-group">
             <label for="name">Username</label>
-            <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="Enter username">
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="Enter username" required>
           </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" required>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" name="password" placeholder="Password" onkeyup='check()'>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password" onkeyup='check()' required>
         </div>
         <div class="form-group">
             <label for="password2">Confirm Password</label>
-            <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password" onkeyup='check()'>
+            <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password" onkeyup='check()' required>
           </div>
           <div id="message"></div>
         <button type="submit" class="btn btn-dark" value="Register">Register</button>

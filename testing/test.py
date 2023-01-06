@@ -1,35 +1,3 @@
-<?php
-
-?>
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prediction</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-    <py-config>
-    packages = ['pandas','numpy','matplotlib','plotly','seaborn','xgboost','scikit-learn']
-    </py-config>
-
-   <!-- <py-env>
-    - pandas
-    - numpy
-    - matplotlib
-    - xgboost
-    - scikit-learn
-    - seaborn
-    - plotly
-
-    </py-env>-->
-</head>
-  
-<body class="p-3 mb-2 bg-light text-dark">
-<?php include 'components/navbar.php' ?>
-<py-script>
 import pandas as pd
 import numpy as np
 import math
@@ -191,14 +159,3 @@ plt.ylabel('Price')
 ax.set_facecolor("#202b38")
 
 pyscript.write("plot",fig)
-
-
-</py-script>
-    <!-- <p class="container">Prediction Results of Bitcoin-USD</p> -->
-    <div class="container">
-    <div id="plot" class="container"></div>
-    </div>
-
-</body>
-</html>
-
