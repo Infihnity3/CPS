@@ -42,6 +42,8 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, explained_v
 from sklearn.metrics import mean_poisson_deviance, mean_gamma_deviance, accuracy_score
 from sklearn.preprocessing import MinMaxScaler
 
+
+
 from pyodide.http import open_url
 
 
@@ -95,6 +97,9 @@ model = XGBRegressor(n_estimators=1000)
 model.fit(X_train, y_train, verbose=False)
 
 prediction = model.predict(X_test)
+
+mae = Mean Absolute Error - MAE : " + str(mean_absolute_error(y_test, prediction))
+rmse = Root Mean squared Error - RMSE : " + str(math.sqrt(mean_squared_error(y_test, prediction)))
 
 trainPredict=model.predict(X_train)
 testPredict=model.predict(X_test)
@@ -174,7 +179,7 @@ new_pred_plot = pd.DataFrame({
     'next_predicted_days_value':next_predicted_days_value
 })
 
-names = cycle(['Last 300 days close price','Predicted next 100 days close price'])
+names = cycle(['Last 700 days close price','Predicted next 365 days close price'])
 
 model=closedp.tolist()
 model.extend((np.array(lst_output).reshape(-1,1)).tolist())
