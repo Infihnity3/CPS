@@ -95,8 +95,8 @@ model.fit(X_train, y_train, verbose=False)
 
 prediction = model.predict(X_test)
 
-mae = Mean Absolute Error - MAE : " + str(mean_absolute_error(y_test, prediction))
-rmse = Root Mean squared Error - RMSE : " + str(math.sqrt(mean_squared_error(y_test, prediction)))
+mae = "Mean Absolute Error - MAE : " + str(mean_absolute_error(y_test, prediction))
+rmse = "Root Mean squared Error - RMSE : " + str(math.sqrt(mean_squared_error(y_test, prediction)))
 
 trainPredict=model.predict(X_train)
 testPredict=model.predict(X_test)
