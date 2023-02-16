@@ -132,7 +132,7 @@ from numpy import array
 lst_output=[]
 n_steps=time_step
 i=0
-prediction_days = 60
+prediction_days = 365
 while(i<=prediction_days):    
     if(len(temp_input)>time_step):
         
@@ -174,7 +174,7 @@ new_pred_plot = pd.DataFrame({
     'next_predicted_days_value':next_predicted_days_value
 })
 
-names = cycle(['Last 15 days close price','Predicted next 10 days close price'])
+names = cycle(['Last 300 days close price','Predicted next 100 days close price'])
 
 model=closedp.tolist()
 model.extend((np.array(lst_output).reshape(-1,1)).tolist())
